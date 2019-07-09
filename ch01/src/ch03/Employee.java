@@ -1,7 +1,5 @@
 package ch03;
 
-import org.omg.CORBA.PRIVATE_MEMBER;
-
 public class Employee {
 
 	private final float RATE = 0.1f;
@@ -9,8 +7,7 @@ public class Employee {
 	private String name ;
 	int pay, bonus;
 	
-	Employee() {}
-	
+	Employee() {} //오버로딩이다. 
 	Employee(String name){
 		this.name = name;
 	}
@@ -40,26 +37,6 @@ public class Employee {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public int getPay() {
-		return pay;
-	}
-
-	public void setPay(int pay) {
-		this.pay = pay;
-	}
-
-	public int getBonus() {
-		return bonus;
-	}
-
-	public void setBonus(int bonus) {
-		this.bonus = bonus;
-	}
-
-	public float getRATE() {
-		return RATE;
 	}
 
 }
