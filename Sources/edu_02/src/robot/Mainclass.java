@@ -5,11 +5,12 @@ public class Mainclass {
 	public static void main(String[] args) {
 
 		System.out.println("SuperRobot 주문 들어왔어요. 만들어 주세요.");
-		Robot superRobot = new Superrobot();
+		Robot superRobot = new Superrobot(); //부모 -> 자식
 		superRobot.shape();
-		superRobot.actionBasic();
+		superRobot.actionBasic(); //상위 클래스에 없으면 자동으로 그 상위 클래스까지 메소드를 찾으러 간다? 
 		superRobot.actionFly();
 		superRobot.actionFire();
+		superRobot.actionKnife();
 		
 		System.out.println("--------------------------");
 		
@@ -19,6 +20,7 @@ public class Mainclass {
 		standardRobot.actionBasic();
 		standardRobot.actionFly();
 		standardRobot.actionFire();
+		standardRobot.actionKnife();
 		
 		System.out.println("--------------------------");
 		
@@ -28,6 +30,7 @@ public class Mainclass {
 		cheapRobot.actionBasic();
 		cheapRobot.actionFly();
 		cheapRobot.actionFire();
+		cheapRobot.actionKnife();
 		
 		System.out.println("--------------------------");
 	}

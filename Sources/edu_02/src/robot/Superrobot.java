@@ -1,6 +1,7 @@
 package robot;
 
 import robot_action.Fireok;
+import robot_action.Knifewithlazer;
 import robot_action.flyok;
 
 public class Superrobot extends Robot{
@@ -8,6 +9,7 @@ public class Superrobot extends Robot{
 	public Superrobot() {
 		flyaction = new flyok();
 		fireaction = new Fireok(); 
+		knifeAction = new Knifewithlazer();
 	}
 	
 	@Override

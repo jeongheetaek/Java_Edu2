@@ -1,6 +1,7 @@
 package robot;
 
 import robot_action.Fireok;
+import robot_action.Knifewithwood;
 import robot_action.flyno;
 
 public class StandardRobot extends Robot {
@@ -8,6 +9,7 @@ public class StandardRobot extends Robot {
 	public StandardRobot() {
 		flyaction = new flyno();
 		fireaction = new Fireok(); 
+		knifeAction = new Knifewithwood();
 	}
 	
 	@Override
