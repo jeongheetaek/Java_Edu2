@@ -6,7 +6,7 @@ public class Hashset {
 
 	public static void main(String[] args) {
 
-		HashSet<String> hs = new HashSet<>();
+		HashSet<String> hs = new HashSet<>(); //순서를 맞추지않고, 중복을 허용하지 않는다.
 		hs.add("구렁2");
 		hs.add("고양이");
 		hs.add("야옹이");

@@ -1,0 +1,4 @@
+drive = oracle
+url = jdbc
+username = scott
+password = tiger
