@@ -1,53 +1,29 @@
 package ch01;
 
-import java.util.Scanner;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class Sql_01 {
 
 	public static void main(String[] args) {
 		
-		boolean run = true;
-		int money;
-		int balance = 0;
-		 
-		Scanner scanner = new Scanner(System.in);
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		// Localhost -> 127.0.0.1;, port 번호 : 1521, xe(orcl) -> Service ID(Sid)
+		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 		
-		while(run) {
-			System.out.println("------------------------------------");
-			System.out.println("1.  예금    2.  출금   3.  잔고   4.  종료");
-			System.out.println("------------------------------------");
-			System.out.print("선택> ");
-			
-			int num = scanner.nextInt();
-			
-			if(num == 1) {
-				System.out.print("예금액> ");
-				money = scanner.nextInt();
-				balance = balance + money;
+		try {
+			Class.forName(driver);
+			Connection conn = DriverManager.getConnection(url, "scott", "TIGER");
+			System.out.println("Strart");
+			if(conn!=null) { 
+				System.out.println("Success 연결 성공");
+			}else {
+				System.out.println("Fail");
 			}
-			else if(num == 2) {
-				System.out.print("출금액> ");
-				money = scanner.nextInt();
-				if(money <= balance)
-					balance = balance - money;
-				else
-					System.out.println("금액이 없습니다.");
-				
-			}
-			else if(num == 3) {
-				System.out.print("잔고> ");
-				System.out.println(balance);				
-			}
-			else if(num == 4) {
-				break;
-			}
-			else {
-				System.out.println("잘못입력하셨습니다.");
-			}
+			conn.close();
+		}catch(Exception e) {
+			System.out.println("Error" + e.getMessage());
 		}
-		scanner.close();
-		System.out.println("프로그램 종료");
-
 	}
 
 }
