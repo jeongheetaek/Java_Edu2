@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Greet")
 public class Greet extends HttpServlet {
 	PrintWriter log;
-	String path = "c:/log/log.txt";
+	String path = "c:/log/";
+	String date;
+	
 	public void init(ServletConfig config) throws ServletException {
 		try { log = new PrintWriter(new FileWriter(path,true)); // 로그 저장용 프린터
 		} catch(IOException e ) {System.out.println("헐 ! 즐~"); }
@@ -25,10 +27,12 @@ public class Greet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		log = new PrintWriter(new FileWriter(path, true));
+		GregorianCalendar gc = new GregorianCalendar();
+		date = String.format("%TF %TT", gc,gc);
+		date = date.replace(":","");
+		log = new PrintWriter(new FileWriter(path+date+".txt", true));
 		String name = request.getParameter("name");
 		String msg = name + "님 반가워 \r\n";
-		GregorianCalendar gc = new GregorianCalendar();
 		String date = String.format("%TF %TT\r\n", gc,gc);
 		response.setContentType("text/html;charset=utf-8"); // browser에도 노출하겠따.
 		PrintWriter out = response.getWriter(); // 화면노출용 프린터
